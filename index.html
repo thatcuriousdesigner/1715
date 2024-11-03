@@ -3,71 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Protected Media Player</title>
+    <title>Secret Song Page</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
             height: 100vh;
-            background-color: #6b3434;
-        }
-        #login-box, #media-box {
-            display: none;
+            margin: 0;
+            background: url('/mnt/data/2d722851-f98a-44a3-b176-b2fcfbd201aa.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
             text-align: center;
+            flex-direction: column;
+        }
+        #passwordForm {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.7); /* Optional: Dark overlay for readability */
             padding: 20px;
-            border: 1px solid #ccc;
-            background-color: white;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
         }
-        #login-box.active, #media-box.active {
-            display: block;
-        }
-        input[type="password"] {
+        input[type="password"], button {
             padding: 10px;
-            margin-top: 10px;
-            width: 80%;
+            margin: 5px;
             font-size: 16px;
+            border: none;
+            border-radius: 4px;
         }
         button {
+            background-color: #555;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #333;
+        }
+        #errorMessage {
+            color: red;
             margin-top: 10px;
-            padding: 10px 20px;
-            font-size: 16px;
+        }
+        audio {
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
-<div id="login-box" class="active">
-    <h2>Jangthemoon PW:1715</h2>
-    <input type="password" id="password" placeholder="Enter password" />
+<h1>Enter the Password to Play the Song</h1>
+
+<div id="passwordForm">
+    <input type="password" id="passwordInput" placeholder="Enter password">
     <button onclick="checkPassword()">Submit</button>
-    <p id="error-message" style="color:red; display:none;">Incorrect password. Try again.</p>
+    <p id="errorMessage"></p>
 </div>
 
-<div id="media-box">
-    <h2>Enjoy the Music!</h2>
-    <audio id="audio-player" controls>
-        <source src="song.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-</div>
+<audio id="secretSong" controls style="display: none;">
+    <source src="your-song-file.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
 
 <script>
-    function checkPassword() {
-        const correctPassword = "1715";  // Set your password here
-        const enteredPassword = document.getElementById("password").value;
-        const loginBox = document.getElementById("login-box");
-        const mediaBox = document.getElementById("media-box");
-        const errorMessage = document.getElementById("error-message");
+    const correctPassword = "yourPassword123"; // Change this to your desired password
+    const errorMessage = document.getElementById("errorMessage");
+    const audioElement = document.getElementById("secretSong");
 
-        if (enteredPassword === correctPassword) {
-            loginBox.classList.remove('active');
-            mediaBox.classList.add('active');
-            errorMessage.style.display = 'none';
+    function checkPassword() {
+        const userInput = document.getElementById("passwordInput").value;
+        if (userInput === correctPassword) {
+            errorMessage.textContent = "";
+            audioElement.style.display = "block";
+            audioElement.play();
         } else {
-            errorMessage.style.display = 'block';
+            errorMessage.textContent = "Incorrect password. Please try again.";
         }
     }
 </script>
