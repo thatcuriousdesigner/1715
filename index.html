@@ -20,7 +20,7 @@
             flex-direction: column;
         }
         #passwordForm {
-            margin-top: 22vh; /* Adjust this value to control the distance from the top */
+            margin-top: 40vh; /* Adjust this value to control the distance from the top */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -53,23 +53,4 @@
 
 <div id="passwordForm">
     <input type="password" id="passwordInput" placeholder="Enter password">
-    <button onclick="checkPassword()">Submit</button>
-    <p id="errorMessage"></p>
-</div>
-
-<audio id="secretSong" controls style="display: none;">
-    <source src="Jangthemoon - 1714 (flight of the moon).wav" type="audio/mpeg">
-    Your browser does not support the audio element.
-</audio>
-
-<script>
-    const correctPassword = "1714"; // Change this to your desired password
-    const errorMessage = document.getElementById("errorMessage");
-    const audioElement = document.getElementById("secretSong");
-
-    function checkPassword() {
-        console.log("Submit button pressed"); // Debugging log
-        const userInput = document.getElementById("passwordInput").value;
-        console.log("Entered password:", userInput); // Debugging log to check input
-
-        if (userInput === correctPas
+    <
