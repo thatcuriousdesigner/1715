@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secret Song Page</title>
+    <title>JangTheMoon</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             overflow: hidden; /* Prevents scrolling */
             display: flex;
             align-items: center;
-            justify-content: flex-start; /* Positions content at the top */
+            justify-content: center; /* Centers content vertically */
             height: 100vh;
             margin: 0;
             background: url('Newest.png') no-repeat center center fixed;
@@ -18,10 +18,11 @@
             color: white;
             text-align: center;
             flex-direction: column;
-    
+        }
+        #passwordForm {
+            margin-top: 20vh; /* Adjust this value to control the distance from the top */
         }
         input[type="password"], button {
-            margin-top: 30vh; /* Adjust this value to control the distance from the top */
             padding: 10px;
             margin: 5px;
             font-size: 16px;
@@ -59,7 +60,7 @@
 </audio>
 
 <script>
-    const correctPassword = "1715"; // Change this to your desired password
+    const correctPassword = "1714"; // Change this to your desired password
     const errorMessage = document.getElementById("errorMessage");
     const audioElement = document.getElementById("secretSong");
 
