@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secret Song Page</title>
+    <title>Jangthemoon</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -18,8 +18,8 @@
             color: white;
             text-align: center;
             flex-direction: column;
-
-       #passwordForm {
+        }
+        #passwordForm {
             margin-top: 16vh; /* Positions form 25% down the viewport height */
         }
         input[type="password"], button {
@@ -41,7 +41,7 @@
             color: red;
             margin-top: 10px;
         }
-       audio {
+        audio {
             margin-top: 20px;
         }
         a {
@@ -76,18 +76,20 @@
 </a>
 
 <script>
-    const correctPassword = "1714"; // Change this to your desired password
+    const correctPassword = "1714"; // Correct password
     const errorMessage = document.getElementById("errorMessage");
     const audioElement = document.getElementById("secretSong");
+    const secretLink = document.getElementById("secretLink");
 
     function checkPassword() {
         const userInput = document.getElementById("passwordInput").value;
         if (userInput === correctPassword) {
-            errorMessage.textContent = "";
-            audioElement.style.display = "block";
-            audioElement.play();
+            errorMessage.textContent = ""; // Clear error message
+            audioElement.style.display = "block"; // Show audio player
+            audioElement.play(); // Play the audio
+            secretLink.style.display = "block"; // Show the link below the audio
         } else {
-            errorMessage.textContent = "Incorrect password. Please try again.";
+            errorMessage.textContent = "Incorrect password. Please try again."; // Show error message
         }
     }
 </script>
