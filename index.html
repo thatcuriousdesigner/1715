@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jangthemoon</title>
+    <title>Secret Song Page</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             overflow: hidden; /* Prevents scrolling */
             display: flex;
             align-items: center;
-            justify-content: flex-start; /* Aligns content to the top */
+            justify-content: flex-start; /* Positions content at the top */
             height: 100vh;
             margin: 0;
             background: url('Newest.png') no-repeat center center fixed;
@@ -18,14 +18,10 @@
             color: white;
             text-align: center;
             flex-direction: column;
-        }
-        #passwordForm {
-            margin-top: 40vh; /* Adjust this value to control the distance from the top */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+    
         }
         input[type="password"], button {
+            margin-top: 30vh; /* Adjust this value to control the distance from the top */
             padding: 10px;
             margin: 5px;
             font-size: 16px;
@@ -53,4 +49,31 @@
 
 <div id="passwordForm">
     <input type="password" id="passwordInput" placeholder="Enter password">
-    <
+    <button onclick="checkPassword()">Submit</button>
+    <p id="errorMessage"></p>
+</div>
+
+<audio id="secretSong" controls style="display: none;">
+    <source src="Jangthemoon - 1714 (flight of the moon).wav" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<script>
+    const correctPassword = "1715"; // Change this to your desired password
+    const errorMessage = document.getElementById("errorMessage");
+    const audioElement = document.getElementById("secretSong");
+
+    function checkPassword() {
+        const userInput = document.getElementById("passwordInput").value;
+        if (userInput === correctPassword) {
+            errorMessage.textContent = "";
+            audioElement.style.display = "block";
+            audioElement.play();
+        } else {
+            errorMessage.textContent = "Incorrect password. Please try again.";
+        }
+    }
+</script>
+
+</body>
+</html>
